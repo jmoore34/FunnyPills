@@ -5,7 +5,9 @@ using Exiled.API.Features;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs;
 using Exiled.Events.EventArgs.Player;
+using FunnyPills;
 using FunnyPills.Items;
+using FunnyPills.SpawnRooms;
 using PlayerRoles;
 using UnityEngine;
 
@@ -50,23 +52,7 @@ namespace SCPReplacer
         // to cut back on coupling. (Partial classes would be another alternative)
         public void OnRoundStart()
         {
-            SpawnPills(new Vector3(1f, 1f, -7f));
-            SpawnPills(new Vector3(1f, 1.5f, -7f));
-            SpawnPills(new Vector3(1f, 2f, -7f));
-            SpawnPills(new Vector3(0f, 1f, -7f));
-            SpawnPills(new Vector3(0f, 1.5f, -7f));
-            SpawnPills(new Vector3(0f, 2f, -7f));
-            SpawnPills(new Vector3(-0.8f, 1f, -7f));
-            SpawnPills(new Vector3(-0.8f, 1.5f, -7f));
-            SpawnPills(new Vector3(-0.8f, 2f, -7f));
-            SpawnPills(new Vector3(-2f, 0.1f, -7.3f));
-            SpawnPills(new Vector3(-2f, 0.1f, 7.3f));
-        }
-
-
-        private void SpawnPills(Vector3 relative)
-        {
-            CustomItem.Get(TeleportPills.ItemId).Spawn(Room.Get(Exiled.API.Enums.RoomType.Lcz914).Transform.TransformPoint(relative));
+            SpawnRoomUtils.SpawnPills();
         }
     }
 }

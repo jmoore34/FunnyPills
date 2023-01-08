@@ -102,6 +102,9 @@
     <Compile Include="Items\TeleportPills.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpawnItemUtils.cs" />
+    <Compile Include="SpawnRooms\SpawnRoomUtils.cs" />
+    <Compile Include="SpawnRooms\SpawnRoom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
