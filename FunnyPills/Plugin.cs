@@ -5,6 +5,7 @@ using Exiled.API.Features;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs;
 using Exiled.Events.EventArgs.Player;
+using FunnyPills.Items;
 using PlayerRoles;
 using UnityEngine;
 
@@ -65,7 +66,7 @@ namespace SCPReplacer
 
         private void SpawnPills(Vector3 relative)
         {
-            CustomItem.Get("SCP-330-25").Spawn(Room.Get(Exiled.API.Enums.RoomType.Lcz914).Transform.TransformPoint(relative));
+            CustomItem.Get(TeleportPills.ItemId).Spawn(Room.Get(Exiled.API.Enums.RoomType.Lcz914).Transform.TransformPoint(relative));
         }
     }
 }

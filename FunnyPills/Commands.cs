@@ -5,6 +5,8 @@ using CommandSystem;
 using Exiled.API.Features;
 using Exiled.API.Features.Items;
 using Exiled.CustomItems.API.Features;
+using FunnyPills.Items;
+using InventorySystem;
 using PlayerRoles;
 using PluginAPI.Core;
 using PluginAPI.Core.Items;
@@ -13,28 +15,24 @@ using UnityEngine;
 
 namespace SCPReplacer
 {
-    [CommandHandler(typeof(RemoteAdminCommandHandler))]
-    public class LocalCoordinates : ICommand
+    [CommandHandler(typeof(ClientCommandHandler))]
+    public class RaytracingGunCommand : ICommand
     {
-        public string Command => "localcoordinates";
-        public string[] Aliases => new[] { "lc" };
-        public string Description => "Returns the coordinates you are looking at relative to the room";
+        public string Command => "rayracinggun";
+        public string[] Aliases => new[] { "rg" };
+        public string Description => "Gives you a raytracing gun";
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            var player = Exiled.API.Features.Player.Get(sender);
-            var room = player.CurrentRoom;
-            Vector3 forward = player.CameraTransform.forward;
-            // Reference used: MapEditorReborn
-            // https://github.com/Michal78900/MapEditorReborn/blob/059475cd822bccfa07a8a28d458516b720f2eeb2/MapEditorReborn/Commands/ToolgunCommands/CreateObject.cs#L56
-            if (!Physics.Raycast(player.CameraTransform.position + forward, forward, out RaycastHit hit, 100f))
+            if (!sender.CheckPermission(PlayerPermissions.GivingItems))
             {
-                response = "Failed to raycast";
+                response = "You need item spawning perms in order to use this command.";
                 return false;
             }
-            var point = hit.point;
-            response = $"Absolute position: {point}\n" +
-                       $"Relative position: {room.Transform.InverseTransformPoint(point)}";
+
+            var player = Exiled.API.Features.Player.Get(sender);
+            CustomItem.Get("RaytracingGun").Give(player);
+            response = "Gave a raytracing gun";
             return true;
         }
     }
@@ -73,7 +71,7 @@ namespace SCPReplacer
 
             var location = room.Transform.TransformPoint(offset);
 
-            if (!CustomItem.TryGet("SCP-330-25", out CustomItem item)) {
+            if (!CustomItem.TryGet("SpawnPills", out CustomItem item)) {
                 response = "Unable to get item with matching name";
                 return false;
             }

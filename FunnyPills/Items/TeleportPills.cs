@@ -12,10 +12,13 @@ namespace FunnyPills.Items
     [CustomItem(ItemType.SCP500)]
     internal class TeleportPills : CustomItem
     {
-        public override uint Id { get; set; } = 925;
-        public override string Name { get; set; } = "SCP-330-25";
+        public const int ItemId = 5001;
+        public override uint Id { get; set; } = ItemId;
+        public override string Name { get; set; } = "SCP-500-T";
         public override string Description { get; set; } = "Teleports you to a random location";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
+
+        // todo: implementation
     }
 }
