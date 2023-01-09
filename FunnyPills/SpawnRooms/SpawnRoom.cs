@@ -32,7 +32,7 @@ namespace FunnyPills.SpawnRooms
         public Vector3 GetRandomAbsoluteSpawnPoint()
         {
             int index = UnityEngine.Random.Range(0, RelativeSpawnPoints.Count);
-            return RelativeSpawnPoints[index];
+            return Room.Transform.TransformPoint(RelativeSpawnPoints[index]);
         }
         
 

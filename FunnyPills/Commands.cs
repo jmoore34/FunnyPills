@@ -37,9 +37,11 @@ namespace SCPReplacer
             return true;
         }
     }
+
+    [CommandHandler(typeof(ClientCommandHandler))]
     public class RaytracingGunCommand : ICommand
     {
-        public string Command => "rayracinggun";
+        public string Command => "raytracinggun";
         public string[] Aliases => new[] { "rg" };
         public string Description => "Gives you a raytracing gun";
 

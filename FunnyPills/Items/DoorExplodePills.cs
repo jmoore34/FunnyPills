@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 namespace FunnyPills.Items
 {
     [CustomItem(ItemType.SCP500)]
-    internal class TeleportPills : CustomItem
+    internal class DoorExplodePills : CustomItem
     {
-        public const int ItemId = 5001;
+        public const int ItemId = 5002;
         public override uint Id { get; set; } = ItemId;
-        public override string Name { get; set; } = "SCP-500-T";
-        public override string Description { get; set; } = "Teleports you to a random location";
+        public override string Name { get; set; } = "SCP-500-X";
+        public override string Description { get; set; } = "Explodes nearby doors";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
 
@@ -36,7 +36,7 @@ namespace FunnyPills.Items
         {
             if (ev.Item.Type == CustomItem.Get(Name).Type)
             {
-                ev.Player.Broadcast(5, "You start to feel dizzy");
+                ev.Player.Broadcast(5, "Boom!");
             }
         }
     }

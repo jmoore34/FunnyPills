@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="Commands.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Items\DoorExplodePills.cs" />
     <Compile Include="Items\RaytracingGun.cs" />
     <Compile Include="Items\TeleportPills.cs" />
     <Compile Include="Plugin.cs" />

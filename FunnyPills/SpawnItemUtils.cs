@@ -15,7 +15,8 @@ namespace FunnyPills
         /// </summary>
         public static List<int> CustomPillsIDs { get; set; } = new List<int>
         {
-            TeleportPills.ItemId
+            TeleportPills.ItemId,
+            DoorExplodePills.ItemId
         };
 
         /// <summary>
