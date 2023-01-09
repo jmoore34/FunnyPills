@@ -106,6 +106,7 @@
     <Compile Include="SpawnItemUtils.cs" />
     <Compile Include="SpawnRooms\SpawnRoomUtils.cs" />
     <Compile Include="SpawnRooms\SpawnRoom.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -15,7 +15,7 @@ namespace FunnyPills.Items
     {
         public const int ItemId = 5002;
         public override uint Id { get; set; } = ItemId;
-        public override string Name { get; set; } = "SCP-500-X";
+        public override string Name { get; set; } = "<color=#f17d7d>SCP-500-X</color>";
         public override string Description { get; set; } = "Explodes nearby doors";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
@@ -36,7 +36,11 @@ namespace FunnyPills.Items
         {
             if (Check(ev.Item))
             {
-                ev.Player.Broadcast(5, "Boom!");
+                foreach (var door in ev.Player.CurrentRoom.Doors)
+                { 
+                    door.BreakDoor(); // if breakable
+                    door.TryPryOpen(); // if pryable
+                }
             }
         }
     }
