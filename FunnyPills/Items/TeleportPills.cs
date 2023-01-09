@@ -34,7 +34,7 @@ namespace FunnyPills.Items
 
         private void OnUsedItem(UsedItemEventArgs ev)
         {
-            if (ev.Item.Type == CustomItem.Get(Name).Type)
+            if (Check(ev.Item))
             {
                 ev.Player.Broadcast(5, "You start to feel dizzy");
             }
