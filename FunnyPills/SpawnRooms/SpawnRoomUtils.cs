@@ -68,7 +68,8 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(4.3f, 0, 7.1f),
 
                 // outside 914 room
-                new Vector3(-7.3f, 0, 3.1f),
+                new Vector3(-7.2f, 0, -3.2f),
+                new Vector3(-7.2f, 0, 3.2f),
             }),
 
             new SpawnRoom(Room.Get(RoomType.Hcz939), new List<Vector3>
