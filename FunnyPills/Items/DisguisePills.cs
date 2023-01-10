@@ -63,7 +63,8 @@ namespace FunnyPills.Items
                             RoleTypeId.Scp106,
                             RoleTypeId.Scp096,
                             RoleTypeId.Scp0492,
-                            RoleTypeId.Scp939
+                            RoleTypeId.Scp939,
+                            RoleTypeId.Scp173
                         }.RandomElement();
                         break;
                 }
