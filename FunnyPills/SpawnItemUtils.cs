@@ -1,10 +1,7 @@
 ﻿using Exiled.CustomItems.API.Features;
 using FunnyPills.Items;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunnyPills
 {
@@ -13,11 +10,17 @@ namespace FunnyPills
         /// <summary>
         /// All custom pills objects than spawn
         /// </summary>
-        public static List<int> CustomPillsIDs { get; set; } = new List<int>
+        public static CustomPill[] CustomPills { get; set; } = new CustomPill[]
         {
-            TeleportPills.ItemId,
-            DoorExplodePills.ItemId
+            (CustomPill) CustomItem.Get(DisguisePills.ItemId),
+            (CustomPill) CustomItem.Get(TeleportPills.ItemId),
+            (CustomPill) CustomItem.Get(DoorExplodePills.ItemId),
         };
+
+        public static string PillDescriptions =>
+            string.Join("\n",
+                CustomPills.Select(pill => $"<color=#5aeee7>{pill.Letter}</color> - {pill.Description}"));
+
 
         /// <summary>
         /// Enumerates through every pill type then wraps around
@@ -25,10 +28,11 @@ namespace FunnyPills
         /// <returns>a random custom pill</returns>
         public static IEnumerator<CustomItem> CustomPillsCircularEnumerator()
         {
-            CustomPillsIDs.ShuffleList();
+            CustomItem[] shuffled = (CustomItem[])CustomPills.Clone();
+            shuffled.ShuffleList();
             while (true)
-                foreach (int id in CustomPillsIDs)
-                    yield return CustomItem.Get(id);
+                foreach (var pill in shuffled)
+                    yield return pill;
         }
 
         /// <summary>

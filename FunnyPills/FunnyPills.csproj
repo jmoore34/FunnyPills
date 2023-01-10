@@ -96,12 +96,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\GivePillsCommand.cs" />
     <Compile Include="Commands\RaycastingGunCommand.cs" />
     <Compile Include="Commands\SpawnAllPossiblePillsCommand.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Items\CustomPill.cs" />
     <Compile Include="Items\DisguisePills.cs" />
     <Compile Include="Items\DoorExplodePills.cs" />
-    <Compile Include="Items\RaytracingGun.cs" />
+    <Compile Include="Items\RaycastingGun.cs" />
     <Compile Include="Items\TeleportPills.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

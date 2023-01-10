@@ -2,19 +2,16 @@
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunnyPills.Items
 {
     [CustomItem(ItemType.SCP500)]
-    internal class DoorExplodePills : CustomItem
+    internal class DoorExplodePills : CustomPill
     {
         public const int ItemId = 5002;
         public override uint Id { get; set; } = ItemId;
+        public override char Letter { get; set; } = 'X';
+
         public override string Name { get; set; } = "<color=#f17d7d>SCP-500-X</color>";
         public override string Description { get; set; } = "Explodes nearby doors";
         public override float Weight { get; set; } = 0;
@@ -37,7 +34,7 @@ namespace FunnyPills.Items
             if (Check(ev.Item))
             {
                 foreach (var door in ev.Player.CurrentRoom.Doors)
-                { 
+                {
                     door.BreakDoor(); // if breakable
                     door.TryPryOpen(); // if pryable
                 }

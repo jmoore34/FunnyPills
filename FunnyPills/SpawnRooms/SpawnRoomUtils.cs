@@ -1,12 +1,6 @@
 ﻿using Exiled.API.Enums;
 using Exiled.API.Features;
-using Exiled.CustomItems.API.Features;
-using PluginAPI.Core;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace FunnyPills.SpawnRooms
@@ -45,7 +39,7 @@ namespace FunnyPills.SpawnRooms
             }
         }
 
-        public static List<SpawnRoom> AllSpawnRooms = new List<SpawnRoom> { 
+        public static List<SpawnRoom> AllSpawnRooms = new List<SpawnRoom> {
             new SpawnRoom(Room.Get(RoomType.Lcz914), new List<Vector3>
             {
                 // shelf left

@@ -1,10 +1,7 @@
 ﻿using CommandSystem;
 using Exiled.CustomItems.API.Features;
+using FunnyPills.Items;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunnyPills.Commands
 {
@@ -24,7 +21,7 @@ namespace FunnyPills.Commands
             }
 
             var player = Exiled.API.Features.Player.Get(sender);
-            CustomItem.Get("RaytracingGun").Give(player);
+            CustomItem.Get(RaycastingGun.ItemId).Give(player);
             response = "Gave a raytracing gun";
             return true;
         }

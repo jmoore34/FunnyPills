@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Exiled.API.Features;
+﻿using Exiled.API.Features;
 using Exiled.CustomItems.API.Features;
-using Exiled.Events.EventArgs;
-using Exiled.Events.EventArgs.Player;
-using FunnyPills;
-using FunnyPills.Items;
 using FunnyPills.SpawnRooms;
-using PlayerRoles;
-using UnityEngine;
+using System;
 
 namespace SCPReplacer
 {

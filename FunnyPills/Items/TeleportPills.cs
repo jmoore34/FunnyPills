@@ -1,24 +1,19 @@
-﻿using Exiled.API.Features;
-using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MEC;
-using PluginAPI.Core;
 using PluginAPI.Core.Zones;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunnyPills.Items
 {
     [CustomItem(ItemType.SCP500)]
-    internal class TeleportPills : CustomItem
+    internal class TeleportPills : CustomPill
     {
         public const int ItemId = 5001;
         public override uint Id { get; set; } = ItemId;
+        public override char Letter { get; set; } = 'T';
         public override string Name { get; set; } = "<color=#73f1c9>SCP-500-T</color>";
         public override string Description { get; set; } = "Teleports you to a random location";
         public override float Weight { get; set; } = 0;

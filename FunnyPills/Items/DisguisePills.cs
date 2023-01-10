@@ -4,19 +4,17 @@ using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
 using PlayerRoles;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunnyPills.Items
 {
     [CustomItem(ItemType.SCP500)]
-    internal class DisguisePills : CustomItem
+    internal class DisguisePills : CustomPill
     {
         public const int ItemId = 5003;
         public override uint Id { get; set; } = ItemId;
+        public override char Letter { get; set; } = 'D';
+
         public override string Name { get; set; } = "<color=#80ec7d>SCP-500-D</color>";
         public override string Description { get; set; } = "Disguise yourself as an allied class";
         public override float Weight { get; set; } = 0;
@@ -60,7 +58,7 @@ namespace FunnyPills.Items
                         disguise = RoleTypeId.ClassD;
                         break;
                     default:
-                        disguise = new List<RoleTypeId> { 
+                        disguise = new List<RoleTypeId> {
                             RoleTypeId.Scp049,
                             RoleTypeId.Scp106,
                             RoleTypeId.Scp096,
