@@ -15,7 +15,7 @@ namespace FunnyPills.Items
         public override uint Id { get; set; } = ItemId;
         public override char Letter { get; set; } = 'D';
 
-        public override string Name { get; set; } = "<color=#80ec7d>SCP-500-D</color>";
+        public override string Name { get; set; } = "<color=#4751f3>SCP-500-D</color>";
         public override string Description { get; set; } = "Disguise yourself as an allied class";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
@@ -68,7 +68,7 @@ namespace FunnyPills.Items
                         break;
                 }
                 ev.Player.ChangeAppearance(disguise);
-                ev.Player.Broadcast(10, $"You now look like a <color={disguise.GetColor()}>{disguise.GetFullName()}</color>!");
+                ev.Player.Broadcast(10, $"You now look like a <color={disguise.GetColor().ToHex()}>{disguise.GetFullName()}</color>!", Broadcast.BroadcastFlags.Normal, true);
             }
         }
     }

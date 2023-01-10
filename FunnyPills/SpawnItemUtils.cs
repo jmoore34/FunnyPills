@@ -28,7 +28,7 @@ namespace FunnyPills
         /// <returns>a random custom pill</returns>
         public static IEnumerator<CustomItem> CustomPillsCircularEnumerator()
         {
-            CustomItem[] shuffled = (CustomItem[])CustomPills.Clone();
+            CustomPill[] shuffled = (CustomPill[])CustomPills.Clone();
             shuffled.ShuffleList();
             while (true)
                 foreach (var pill in shuffled)

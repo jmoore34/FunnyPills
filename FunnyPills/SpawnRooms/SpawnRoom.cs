@@ -28,6 +28,18 @@ namespace FunnyPills.SpawnRooms
         /// <returns></returns>
         public Vector3 GetRandomAbsoluteSpawnPoint()
         {
+            if (Room == null)
+            {
+                Log.Error("GetRandomAbsoluteSpawnPoint: Room is null");
+            }
+            else if (Room.Transform == null)
+            {
+                Log.Error("GetRandomAbsoluteSpawnPoint: Room.Transform is null");
+            }
+            else if (Room.Transform == null)
+            {
+                Log.Error("GetRandomAbsoluteSpawnPoint: Room.Transform is null");
+            }
             return Room.Transform.TransformPoint(RelativeSpawnPoints.RandomItem());
         }
 

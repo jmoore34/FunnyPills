@@ -104,6 +104,7 @@
     <Compile Include="Items\DisguisePills.cs" />
     <Compile Include="Items\DoorExplodePills.cs" />
     <Compile Include="Items\RaycastingGun.cs" />
+    <Compile Include="Items\SummonPills.cs" />
     <Compile Include="Items\TeleportPills.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

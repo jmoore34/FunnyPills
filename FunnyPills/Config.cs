@@ -1,7 +1,7 @@
 ﻿using Exiled.API.Interfaces;
 using System.ComponentModel;
 
-namespace SCPReplacer
+namespace FunnyPills
 {
     public class Config : IConfig
     {

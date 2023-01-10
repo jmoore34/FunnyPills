@@ -3,7 +3,7 @@ using Exiled.CustomItems.API.Features;
 using FunnyPills.SpawnRooms;
 using System;
 
-namespace SCPReplacer
+namespace FunnyPills
 {
     public class Plugin : Plugin<Config>
     {
