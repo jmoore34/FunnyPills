@@ -16,11 +16,11 @@ using UnityEngine;
 namespace FunnyPills.Items
 {
     [CustomItem(ItemType.GunE11SR)]
-    internal class RatracingGun : CustomWeapon
+    internal class RaycastingGun : CustomWeapon
     {
         public const int ItemId = 4999;
         public override uint Id { get; set; } = ItemId;
-        public override string Name { get; set; } = "RaytracingGun";
+        public override string Name { get; set; } = "RaycastingGun";
         public override string Description { get; set; } = "Spawn SCP-500 at the viewport point and log the room-local location";
         public override float Weight { get; set; }
 

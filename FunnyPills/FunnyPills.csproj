@@ -96,7 +96,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands.cs" />
+    <Compile Include="Commands\RaycastingGunCommand.cs" />
+    <Compile Include="Commands\SpawnAllPossiblePillsCommand.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Items\DisguisePills.cs" />
     <Compile Include="Items\DoorExplodePills.cs" />
