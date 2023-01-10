@@ -11,7 +11,7 @@ namespace FunnyPills.Items
     [CustomItem(ItemType.SCP500)]
     internal class SummonPills : CustomPill
     {
-        public const int ItemId = 5001;
+        public const int ItemId = 5004;
         public override uint Id { get; set; } = ItemId;
         public override char Letter { get; set; } = 'T';
         public override string Name { get; set; } = "<color=#73f1c9>S</color>";
