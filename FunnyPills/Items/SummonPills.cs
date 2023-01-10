@@ -14,11 +14,10 @@ namespace FunnyPills.Items
         public const int ItemId = 5004;
         public override uint Id { get; set; } = ItemId;
         public override char Letter { get; set; } = 'T';
-        public override string Name { get; set; } = "<color=#73f1c9>S</color>";
-        public override string Description { get; set; } = "Teleports you to a random location";
+        public override string Name { get; set; } = "<color=#60f04c>SCP-500-S</color>";
+        public override string Description { get; set; } = "Summons an ally from the dead";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
-        private int secondsBeforeTeleport = 3;
 
         protected override void SubscribeEvents()
         {
@@ -36,17 +35,7 @@ namespace FunnyPills.Items
         {
             if (Check(ev.Item))
             {
-                ev.Player.Broadcast((ushort)secondsBeforeTeleport, "You start to feel dizzy");
-                Timing.CallDelayed(secondsBeforeTeleport, () =>
-                {
-                    var chosenRoom = PluginAPI.Core.Map.Rooms.Where(room =>
-                        // don't tp to light unless not yet decontaminated
-                        (room.Zone != MapGeneration.FacilityZone.LightContainment || !LightZone.IsDecontaminated)
-                        // don't tp to heavy unless nuke hasn't gone off
-                        && (room.Zone != MapGeneration.FacilityZone.HeavyContainment || !PluginAPI.Core.Warhead.IsDetonated)
-                    ).RandomElement();
-                    ev.Player.Teleport(chosenRoom);
-                });
+
             }
         }
     }
