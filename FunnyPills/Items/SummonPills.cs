@@ -81,6 +81,7 @@ namespace FunnyPills.Items
                         spawnPlayerRole = RoleTypeId.Tutorial;
                         break;
                 }
+                // todo: add serpents custom class if tutorial
                 ev.Player.Broadcast(5, $"Summoning a <color={spawnPlayerRole.GetColor().ToHex()}>{spawnPlayerRole.GetFullName()}</color>");
                 spawnPlayer.Role.Set(spawnPlayerRole, Exiled.API.Enums.SpawnReason.Respawn, RoleSpawnFlags.All);
                 spawnPlayer.Broadcast(7, "<color=#fffea7>You have been summoned by</color> <color=#83f546>SCP-500-A</color>");
