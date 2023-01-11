@@ -46,6 +46,7 @@ namespace FunnyPills.Items
             if (Player.List.Where(p => p.Role.Type == RoleTypeId.Spectator).Count() > 0)
             {
                 ev.Player.Broadcast(5, "<color=#ed98a2>There are not enough spectators yet to use SCP-500-A.</color>");
+                ev.IsAllowed = false;
             }
         }
 
