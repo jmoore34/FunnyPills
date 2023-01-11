@@ -2,6 +2,7 @@
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
+using MapGeneration;
 using MEC;
 using PluginAPI.Core.Zones;
 using System.Linq;
@@ -36,14 +37,18 @@ namespace FunnyPills.Items
         {
             if (Check(ev.Item))
             {
-                ev.Player.Broadcast((ushort)secondsBeforeTeleport, "You start to feel dizzy");
+                ev.Player.Broadcast((ushort)secondsBeforeTeleport, "<color=#73f1c9>You start to feel dizzy</color>");
                 Timing.CallDelayed(secondsBeforeTeleport, () =>
                 {
                     var chosenRoom = PluginAPI.Core.Map.Rooms.Where(room =>
-                        // don't tp to light unless not yet decontaminated
-                        (room.Zone != MapGeneration.FacilityZone.LightContainment || !LightZone.IsDecontaminated)
+                        // don't tp to light unless not yet decontaminated & not nuked
+                        (room.Zone != MapGeneration.FacilityZone.LightContainment || (!LightZone.IsDecontaminated && !PluginAPI.Core.Warhead.IsDetonated))
                         // don't tp to heavy unless nuke hasn't gone off
                         && (room.Zone != MapGeneration.FacilityZone.HeavyContainment || !PluginAPI.Core.Warhead.IsDetonated)
+                        // don't tp to invalid rooms
+                        && room.isActiveAndEnabled
+                        && room.gameObject != null
+                        && room.Name != RoomName.Pocket
                     ).RandomElement();
                     ev.Player.Teleport(chosenRoom);
                 });
