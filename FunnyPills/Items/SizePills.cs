@@ -53,6 +53,7 @@ namespace FunnyPills.Items
                     new Vector3(1.2f, 1.8f, 1.05f),
                 };
                 ev.Player.Scale = sizes.RandomElement();
+                affectedPlayers.Add(ev.Player);
             }
         }
 
