@@ -77,6 +77,7 @@ namespace FunnyPills.Items
                     case RoleTypeId.FacilityGuard:
                     case RoleTypeId.NtfPrivate:
                     case RoleTypeId.NtfSergeant:
+                    case RoleTypeId.NtfSpecialist:
                     case RoleTypeId.NtfCaptain:
                         disguise = RoleTypeId.Scientist;
                         break;
