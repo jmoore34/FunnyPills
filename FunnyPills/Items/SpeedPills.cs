@@ -1,11 +1,8 @@
-﻿using CustomPlayerEffects;
-using Exiled.API.Extensions;
-using Exiled.API.Features;
-using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
-using System.Linq;
+using MEC;
 
 namespace FunnyPills.Items
 {
@@ -24,6 +21,7 @@ namespace FunnyPills.Items
         protected override void SubscribeEvents()
         {
             Exiled.Events.Handlers.Player.UsedItem += OnUsedItem;
+
             base.SubscribeEvents();
         }
 
@@ -37,6 +35,8 @@ namespace FunnyPills.Items
         {
             if (Check(ev.Item))
             {
+                var duration = 8;
+
                 if (UnityEngine.Random.value < 0.75)
                 {
                     ev.Player.EnableEffect(Exiled.API.Enums.EffectType.MovementBoost, 8);
@@ -49,8 +49,16 @@ namespace FunnyPills.Items
                     ev.Player.EnableEffect(Exiled.API.Enums.EffectType.Concussed, 8);
                     ev.Player.Broadcast(8, "<color=#9c4646>You don't feel so good...</color>");
                 }
+                Timing.CallDelayed(8, () =>
+                {
+                    ev.Player.DisableEffect(Exiled.API.Enums.EffectType.MovementBoost);
+                    ev.Player.DisableEffect(Exiled.API.Enums.EffectType.Disabled);
+                    ev.Player.DisableEffect(Exiled.API.Enums.EffectType.Concussed);
+
+                });
             }
         }
+
     }
 }
 

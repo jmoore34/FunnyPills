@@ -1,7 +1,9 @@
-﻿using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features;
+using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace FunnyPills.Items
@@ -17,16 +19,21 @@ namespace FunnyPills.Items
         public override string Description { get; set; } = "Randomly change your model size";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
+        private HashSet<Player> affectedPlayers = new HashSet<Player>();
 
         protected override void SubscribeEvents()
         {
             Exiled.Events.Handlers.Player.UsedItem += OnUsedItem;
+            Exiled.Events.Handlers.Player.Spawned += OnSpawn;
+            Exiled.Events.Handlers.Server.RoundStarted += OnRoundStarted;
             base.SubscribeEvents();
         }
 
         protected override void UnsubscribeEvents()
         {
             Exiled.Events.Handlers.Player.UsedItem -= OnUsedItem;
+            Exiled.Events.Handlers.Player.Spawned -= OnSpawn;
+            Exiled.Events.Handlers.Server.RoundStarted -= OnRoundStarted;
             base.UnsubscribeEvents();
         }
 
@@ -45,6 +52,20 @@ namespace FunnyPills.Items
                 };
                 ev.Player.Scale = sizes.RandomElement();
             }
+        }
+
+        private void OnSpawn(SpawnedEventArgs ev)
+        {
+            if (affectedPlayers.Contains(ev.Player))
+            {
+                ev.Player.Scale = new Vector3(1f, 1, 1);
+                affectedPlayers.Remove(ev.Player);
+            }
+        }
+
+        private void OnRoundStarted()
+        {
+            affectedPlayers.Clear();
         }
     }
 }
