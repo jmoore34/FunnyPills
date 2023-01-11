@@ -40,7 +40,7 @@ namespace FunnyPills.SpawnRooms
         }
 
         public static List<SpawnRoom> AllSpawnRooms = new List<SpawnRoom> {
-            new SpawnRoom(Room.Get(RoomType.Lcz914), new List<Vector3>
+            new SpawnRoom(RoomType.Lcz914, new List<Vector3>
             {
                 // shelf left
                 new Vector3(1, 3, -7),
@@ -66,7 +66,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-7.2f, 0, 3.2f),
             }),
 
-            new SpawnRoom(Room.Get(RoomType.Hcz939), new List<Vector3>
+            new SpawnRoom(RoomType.Hcz939, new List<Vector3>
             {
                 // top of lockers
                 new Vector3(-6.2f, 2.3f, 0.1f),
