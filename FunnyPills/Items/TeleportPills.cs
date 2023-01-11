@@ -1,4 +1,5 @@
-﻿using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features;
+using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
@@ -49,7 +50,10 @@ namespace FunnyPills.Items
                         && room.isActiveAndEnabled
                         && room.gameObject != null
                         && room.Name != RoomName.Pocket
+                        && room.Name != RoomName.EzRedroom
+                        && room.Name != RoomName.Lcz173
                     ).RandomElement();
+                    Log.Info($"{ev.Player.Nickname} used SCP-500-T. Chosen room: {chosenRoom.Name}, decontaminated: {LightZone.IsDecontaminated}, nuked: {PluginAPI.Core.Warhead.IsDetonated}");
                     ev.Player.Teleport(chosenRoom);
                 });
             }
