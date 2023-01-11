@@ -6,7 +6,6 @@ using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MEC;
 using PlayerRoles;
-using PluginAPI.Core.Zones;
 using System.Linq;
 
 namespace FunnyPills.Items
@@ -33,7 +32,7 @@ namespace FunnyPills.Items
             Exiled.Events.Handlers.Player.UsedItem -= OnUsedItem;
             base.UnsubscribeEvents();
         }
-        
+
         private void OnUsingItem(UsingItemEventArgs ev)
         {
             // work only on these custom pills
@@ -43,7 +42,7 @@ namespace FunnyPills.Items
             // These pills need a spectator to be able to work
 
             // If no spectators:
-            if (Player.List.Where(p => p.Role.Type == RoleTypeId.Spectator).Count() > 0)
+            if (Player.List.Where(p => p.Role.Type == RoleTypeId.Spectator).Count() <= 0)
             {
                 ev.Player.Broadcast(5, "<color=#ed98a2>There are not enough spectators yet to use SCP-500-A.</color>");
                 ev.IsAllowed = false;
@@ -59,7 +58,8 @@ namespace FunnyPills.Items
             if (spawnPlayer == null)
             {
                 ev.Player.Broadcast(6, "<color=#d53f51>But nobody came...</color>");
-            } else
+            }
+            else
             {
                 RoleTypeId spawnPlayerRole;
                 switch (ev.Player.Role.Type)
