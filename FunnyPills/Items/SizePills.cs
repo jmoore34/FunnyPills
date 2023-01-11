@@ -43,12 +43,14 @@ namespace FunnyPills.Items
             {
                 var sizes = new Vector3[]
                 {
-                    // inverted
-                    new Vector3(1f, 1f, -1f),
-                    // wide
+                    // squished
                     new Vector3(1.7f, 0.2f, 1f),
+                    // inverted
+                    new Vector3(1f, -1f, 1f),
+                    // wide
+                    new Vector3(1.8f, 1.1f, 0.2f),
                     // tall
-                    new Vector3(1.2f, 1.1f, 1.8f),
+                    new Vector3(1.2f, 1.8f, 1.05f),
                 };
                 ev.Player.Scale = sizes.RandomElement();
             }
