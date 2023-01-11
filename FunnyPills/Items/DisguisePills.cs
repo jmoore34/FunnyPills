@@ -101,7 +101,7 @@ namespace FunnyPills.Items
                         }.RandomElement();
                         break;
                 }
-                playerDisguises.Add(ev.Player, disguise);
+                playerDisguises[ev.Player] = disguise;
                 ev.Player.ChangeAppearance(disguise);
                 ev.Player.Broadcast(10, $"You now look like a <color={disguise.GetColor().ToHex()}>{disguise.GetFullName()}</color>!", Broadcast.BroadcastFlags.Normal, true);
             }
