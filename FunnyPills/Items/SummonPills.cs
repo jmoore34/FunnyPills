@@ -16,8 +16,8 @@ namespace FunnyPills.Items
     {
         public const int ItemId = 5004;
         public override uint Id { get; set; } = ItemId;
-        public override char Letter { get; set; } = 'S';
-        public override string Name { get; set; } = "<color=#60f04c>SCP-500-S</color>";
+        public override char Letter { get; set; } = 'A';
+        public override string Name { get; set; } = "<color=#60f04c>SCP-500-A</color>";
         public override string Description { get; set; } = "Summons an ally from the dead";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
@@ -45,7 +45,7 @@ namespace FunnyPills.Items
             // If no spectators:
             if (Player.List.Where(p => p.Role.Type == RoleTypeId.Spectator).Count() > 0)
             {
-                ev.Player.Broadcast(5, "<color=#ed98a2>There are not enough spectators yet to use SCP-500-S.</color>");
+                ev.Player.Broadcast(5, "<color=#ed98a2>There are not enough spectators yet to use SCP-500-A.</color>");
             }
         }
 
@@ -83,7 +83,7 @@ namespace FunnyPills.Items
                 }
                 ev.Player.Broadcast(5, $"Summoning a <color={spawnPlayerRole.GetColor().ToHex()}>{spawnPlayerRole.GetFullName()}</color>");
                 spawnPlayer.Role.Set(spawnPlayerRole, Exiled.API.Enums.SpawnReason.Respawn, RoleSpawnFlags.All);
-                spawnPlayer.Broadcast(7, "<color=#fffea7>You have been summoned by</color> <color=#83f546>SCP-500-S</color>");
+                spawnPlayer.Broadcast(7, "<color=#fffea7>You have been summoned by</color> <color=#83f546>SCP-500-A</color>");
                 // wait a bit to allow the spawn to finish
                 Timing.CallDelayed(1, () =>
                 {

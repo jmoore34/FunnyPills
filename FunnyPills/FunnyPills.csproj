@@ -102,6 +102,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Items\CustomPill.cs" />
     <Compile Include="Items\DisguisePills.cs" />
+    <Compile Include="Items\SpeedPills.cs" />
     <Compile Include="Items\DoorExplodePills.cs" />
     <Compile Include="Items\RaycastingGun.cs" />
     <Compile Include="Items\SummonPills.cs" />
