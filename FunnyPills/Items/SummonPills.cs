@@ -24,12 +24,14 @@ namespace FunnyPills.Items
         protected override void SubscribeEvents()
         {
             Exiled.Events.Handlers.Player.UsedItem += OnUsedItem;
+            Exiled.Events.Handlers.Player.UsingItem += OnUsingItem;
             base.SubscribeEvents();
         }
 
         protected override void UnsubscribeEvents()
         {
             Exiled.Events.Handlers.Player.UsedItem -= OnUsedItem;
+            Exiled.Events.Handlers.Player.UsingItem -= OnUsingItem;
             base.UnsubscribeEvents();
         }
 
