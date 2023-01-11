@@ -1,11 +1,8 @@
-﻿using CustomPlayerEffects;
-using Exiled.API.Extensions;
-using Exiled.API.Features;
-using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
-using System.Linq;
+using UnityEngine;
 
 namespace FunnyPills.Items
 {
@@ -16,7 +13,7 @@ namespace FunnyPills.Items
         public override uint Id { get; set; } = ItemId;
         public override char Letter { get; set; } = 'M';
 
-        public override string Name { get; set; } = "<color=#47e5f5>SCP-500-M</color>";
+        public override string Name { get; set; } = "<color=#e370f3>SCP-500-M</color>";
         public override string Description { get; set; } = "Randomly change your model size";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
@@ -37,18 +34,16 @@ namespace FunnyPills.Items
         {
             if (Check(ev.Item))
             {
-                if (UnityEngine.Random.value < 0.75)
+                var sizes = new Vector3[]
                 {
-                    ev.Player.EnableEffect(Exiled.API.Enums.EffectType.MovementBoost, 8);
-                    ev.Player.ChangeEffectIntensity(Exiled.API.Enums.EffectType.MovementBoost, 200);
-                    ev.Player.Broadcast(8, "<color=#47e5f5>You feel energized</color>");
-                }
-                else
-                {
-                    ev.Player.EnableEffect(Exiled.API.Enums.EffectType.Disabled, 8);
-                    ev.Player.EnableEffect(Exiled.API.Enums.EffectType.Concussed, 8);
-                    ev.Player.Broadcast(8, "<color=#9c4646>You don't feel so good...</color>");
-                }
+                    // inverted
+                    new Vector3(1f, 1f, -1f),
+                    // wide
+                    new Vector3(1.7f, 0.2f, 1f),
+                    // tall
+                    new Vector3(1.2f, 1.1f, 1.8f),
+                };
+                ev.Player.Scale = sizes.RandomElement();
             }
         }
     }
