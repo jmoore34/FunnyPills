@@ -43,17 +43,18 @@ namespace FunnyPills.Items
                 {
                     var chosenRoom = PluginAPI.Core.Map.Rooms.Where(room =>
                         // don't tp to light unless not yet decontaminated & not nuked
-                        (room.Zone != MapGeneration.FacilityZone.LightContainment || (!LightZone.IsDecontaminated && !PluginAPI.Core.Warhead.IsDetonated))
-                        // don't tp to heavy unless nuke hasn't gone off
-                        && (room.Zone != MapGeneration.FacilityZone.HeavyContainment || !PluginAPI.Core.Warhead.IsDetonated)
+                        (room.Zone != MapGeneration.FacilityZone.LightContainment || (!Map.IsLczDecontaminated && !PluginAPI.Core.Warhead.IsDetonated))
+                        // only tp to surface unless nuke hasn't gone off
+                        && (room.Zone == MapGeneration.FacilityZone.Surface || !PluginAPI.Core.Warhead.IsDetonated)
                         // don't tp to invalid rooms
                         && room.isActiveAndEnabled
                         && room.gameObject != null
                         && room.Name != RoomName.Pocket
-                        && room.Name != RoomName.EzRedroom
+                        && room.Name != RoomName.EzCollapsedTunnel
                         && room.Name != RoomName.Lcz173
+                        && room.Name != RoomName.HczTesla
                     ).RandomElement();
-                    Log.Info($"{ev.Player.Nickname} used SCP-500-T. Chosen room: {chosenRoom.Name}, decontaminated: {LightZone.IsDecontaminated}, nuked: {PluginAPI.Core.Warhead.IsDetonated}");
+                    Log.Info($"{ev.Player.Nickname} used SCP-500-T. Chosen room: {chosenRoom.Name} ({chosenRoom.Zone}), decontaminated: {Map.IsLczDecontaminated}, nuked: {PluginAPI.Core.Warhead.IsDetonated}");
                     ev.Player.Teleport(chosenRoom);
                 });
             }
