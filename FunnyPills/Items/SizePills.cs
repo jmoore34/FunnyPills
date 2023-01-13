@@ -3,7 +3,6 @@ using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
-using PlayerRoles;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace FunnyPills.Items
         public override string Description { get; set; } = "Randomly change your model size";
         public override float Weight { get; set; } = 0;
         public override SpawnProperties SpawnProperties { get; set; }
-        private Dictionary<Player, RoleTypeId> disguisedPlayers = new HashSet<Player, RoleTypeId>();
+        private Dictionary<Player, Vector3> affectedPlayers = new Dictionary<Player, Vector3>();
 
         protected override void SubscribeEvents()
         {
@@ -53,14 +52,15 @@ namespace FunnyPills.Items
                     // tall
                     new Vector3(1.2f, 1.8f, 1.05f),
                 };
-                ev.Player.Scale = sizes.RandomElement();
-                affectedPlayers.Add(ev.Player);
+                var scale = sizes.RandomElement();
+                ev.Player.Scale = scale;
+                affectedPlayers[ev.Player] = scale;
             }
         }
 
         private void OnSpawn(SpawnedEventArgs ev)
         {
-            if (affectedPlayers.Contains(ev.Player))
+            if (affectedPlayers.ContainsKey(ev.Player))
             {
                 ev.Player.Scale = new Vector3(1f, 1, 1);
                 affectedPlayers.Remove(ev.Player);
