@@ -8,7 +8,7 @@ namespace FunnyPills.Commands
     [CommandHandler(typeof(ClientCommandHandler))]
     public class RaycastingGunCommand : ICommand
     {
-        public string Command => "raytracinggun";
+        public string Command => "raycastinggun";
         public string[] Aliases => new[] { "rg" };
         public string Description => "Gives you a raycasting gun";
 
