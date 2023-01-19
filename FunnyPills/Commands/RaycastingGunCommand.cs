@@ -10,7 +10,7 @@ namespace FunnyPills.Commands
     {
         public string Command => "raytracinggun";
         public string[] Aliases => new[] { "rg" };
-        public string Description => "Gives you a raytracing gun";
+        public string Description => "Gives you a raycasting gun";
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
