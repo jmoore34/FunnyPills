@@ -62,7 +62,7 @@ namespace FunnyPills.Items
                 }
                 catch (NullReferenceException e)
                 {
-                    Log.Warn($"Caught NRE in railcaster: {e}");
+                    Log.Warn($"Caught NRE in raycaster: {e}");
                 }
                 finally
                 {
@@ -70,7 +70,6 @@ namespace FunnyPills.Items
                 }
             }
 
-            Log.Info($"Player {ev.Player.Nickname} spawning SCP-500 by raycast gun");
             var newItem = CustomItem.Get(TeleportPills.ItemId);
             lastSpawnedItem = newItem.Spawn(absolutePosition);
             ev.IsAllowed = false; // don't fire an actual shot
