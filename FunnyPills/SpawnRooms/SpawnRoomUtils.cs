@@ -1,5 +1,4 @@
 ﻿using Exiled.API.Enums;
-using Exiled.API.Features;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,6 +39,7 @@ namespace FunnyPills.SpawnRooms
         }
 
         public static List<SpawnRoom> AllSpawnRooms = new List<SpawnRoom> {
+            // SCP 914
             new SpawnRoom(RoomType.Lcz914, new List<Vector3>
             {
                 // shelf left
@@ -66,6 +66,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-7.2f, 0, 3.2f),
             }),
 
+            // SCP 939 CR
             new SpawnRoom(RoomType.Hcz939, new List<Vector3>
             {
                 // top of lockers
@@ -97,7 +98,40 @@ namespace FunnyPills.SpawnRooms
 
                 // right of fridge
                 new Vector3(-6, 0, 4.4f),
-            })
+            }),
+
+            // SCP 173 CR
+            new SpawnRoom(RoomType.Lcz173, new List<Vector3>
+            {
+                // on top of lockers
+                new Vector3(9.8f, 13.7f, 13.7f),
+
+                // left of lockers
+                new Vector3(8.6f, 11.5f, 13.8f),
+
+                // corner next to locked door
+                new Vector3(10.3f, 11.5f, -2.1f),
+
+                // right of unlocked door
+                new Vector3(1.7f, 11.5f, 2.2f),
+                // right of unlocked door
+                new Vector3(1.7f, 11.5f, -2.2f),
+
+                // left of gate
+                new Vector3(-1, 11.5f, -2.4f),
+
+                // top of stairs
+                new Vector3(-7.4f, 11.5f, -2.8f),
+
+                // left of desk
+                new Vector3(-2.3f, 11.4f, -3.1f),
+
+                // the classic behind computer
+                new Vector3(-2.3f, 12.3f, -6.6f),
+
+                // in between gate and rail (diabolical)
+                new Vector3(-2.0f, 11.4f, 2.2f)
+            }),
         };
     }
 }
