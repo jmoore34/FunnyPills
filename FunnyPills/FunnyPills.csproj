@@ -101,6 +101,7 @@
     <Compile Include="Commands\SpawnAllPossiblePillsCommand.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Items\CustomPill.cs" />
+    <Compile Include="Items\BetrayPills.cs" />
     <Compile Include="Items\DisguisePills.cs" />
     <Compile Include="Items\SizePills.cs" />
     <Compile Include="Items\SpeedPills.cs" />
