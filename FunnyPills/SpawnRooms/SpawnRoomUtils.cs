@@ -149,7 +149,10 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-0.4f, 1.3f, -7),
 
                 // women's sink
-                new Vector3(-5.6f, 1, -6)
+                new Vector3(-5.6f, 1, -6),
+
+                // under stall, impossible to pick up due to invisible wall
+                new Vector3(1.9f, 0.1f, -5.2f)  
             }),
 
             // 079 CR
@@ -178,8 +181,13 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-6.9f, -5, -2.5f),
 
                 // in the hidey spot
-                new Vector3(-5.2f, -5.8f, 3.4f)
+                new Vector3(-5.2f, -5.8f, 3.4f),
+
+                // middle of stairs
+                new Vector3(4.5f, -1.5f, 1.1f)
             })
+
+
         };
     }
 }
