@@ -41,13 +41,13 @@ namespace FunnyPills.Items
                 {
                     ev.Player.EnableEffect(Exiled.API.Enums.EffectType.MovementBoost, 8);
                     ev.Player.ChangeEffectIntensity(Exiled.API.Enums.EffectType.MovementBoost, 200);
-                    ev.Player.Broadcast(8, "<color=#47e5f5>You feel energized</color>");
+                    ev.Player.Broadcast(8, "<color=#47e5f5>You feel energized</color>", Broadcast.BroadcastFlags.Normal, true);
                 }
                 else
                 {
                     ev.Player.EnableEffect(Exiled.API.Enums.EffectType.Disabled, 8);
                     ev.Player.EnableEffect(Exiled.API.Enums.EffectType.Concussed, 8);
-                    ev.Player.Broadcast(8, "<color=#9c4646>You don't feel so good...</color>");
+                    ev.Player.Broadcast(8, "<color=#9c4646>You don't feel so good...</color>", Broadcast.BroadcastFlags.Normal, true);
                 }
                 Timing.CallDelayed(8, () =>
                 {

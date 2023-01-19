@@ -59,7 +59,7 @@ namespace FunnyPills.Items
             var spawnPlayer = Util.GetRandomSpectatorOrNull();
             if (spawnPlayer == null)
             {
-                ev.Player.Broadcast(6, "<color=#d53f51>But nobody came...</color>");
+                ev.Player.Broadcast(6, "<color=#d53f51>But nobody came...</color>", Broadcast.BroadcastFlags.Normal, true);
             }
             else
             {
@@ -89,7 +89,8 @@ namespace FunnyPills.Items
                 // also: change role name to serpents if so
                 ev.Player.Broadcast(5, $"Summoning a <color={spawnPlayerRole.GetColor().ToHex()}>{spawnPlayerRole.GetFullName()}</color>");
                 spawnPlayer.Role.Set(spawnPlayerRole, Exiled.API.Enums.SpawnReason.Respawn, RoleSpawnFlags.All);
-                spawnPlayer.Broadcast(16, "<color=#fffea7>You have been summoned by</color> <color=#83f546>SCP-500-A</color>");
+                spawnPlayer.Broadcast(16, "<color=#fffea7>You have been summoned by</color> <color=#83f546>SCP-500-A</color>",
+                    Broadcast.BroadcastFlags.Normal, true);
                 // wait a bit to allow the spawn to finish
                 Timing.CallDelayed(1, () =>
                 {
