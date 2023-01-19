@@ -136,6 +136,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-6.3f, 0, -1.8f)
             }),
 
+            // WC
             new SpawnRoom(RoomType.LczToilets, new List<Vector3>
             {
                 // men's sink
@@ -149,6 +150,19 @@ namespace FunnyPills.SpawnRooms
 
                 // women's sink
                 new Vector3(-5.6f, 1, -6)
+            }),
+
+            // 079 CR
+            new SpawnRoom(RoomType.Hcz079, new List<Vector3>
+            {
+                // classic left stairs bottom
+                new Vector3(5.4f, -3.1f, 1.7f),
+
+                // mid stairs right
+                new Vector3(2.4f, -1.4f, -1.8f),
+
+                // right of regular door
+                new Vector3(-7.2f, 0.1f, -1.6f)
             })
         };
     }
