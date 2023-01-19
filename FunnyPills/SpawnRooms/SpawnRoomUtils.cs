@@ -130,8 +130,26 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-2.3f, 12.3f, -6.6f),
 
                 // in between gate and rail (diabolical)
-                new Vector3(-2.0f, 11.4f, 2.2f)
+                new Vector3(-2.0f, 11.4f, 2.2f),
+
+                // bottom floor behind pole
+                new Vector3(-6.3f, 0, -1.8f)
             }),
+
+            new SpawnRoom(RoomType.LczToilets, new List<Vector3>
+            {
+                // men's sink
+                new Vector3(5.5f, 1, -6.3f),
+
+                // under men's sink
+                new Vector3(5.7f, 0, -6.8f),
+
+                // women's toilet
+                new Vector3(-0.4f, 1.3f, -7),
+
+                // women's sink
+                new Vector3(-5.6f, 1, -6)
+            })
         };
     }
 }
