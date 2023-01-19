@@ -1,9 +1,11 @@
-﻿using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features;
+using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Pickups;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
 using InventorySystem.Items.Firearms.Attachments;
+using System;
 using UnityEngine;
 
 namespace FunnyPills.Items
@@ -51,10 +53,24 @@ namespace FunnyPills.Items
 
             if (lastSpawnedItem != null)
             {
-                lastSpawnedItem.UnSpawn();
-                lastSpawnedItem = null;
+                try
+                {
+                    // Might throw exception if it's a reference to an item that has
+                    // been cleared by RA
+                    lastSpawnedItem.Destroy();
+                    lastSpawnedItem = null;
+                }
+                catch (NullReferenceException e)
+                {
+                    Log.Warn($"Caught NRE in railcaster: {e}");
+                }
+                finally
+                {
+                    lastSpawnedItem = null;
+                }
             }
 
+            Log.Info($"Player {ev.Player.Nickname} spawning SCP-500 by raycast gun");
             var newItem = CustomItem.Get(TeleportPills.ItemId);
             lastSpawnedItem = newItem.Spawn(absolutePosition);
             ev.IsAllowed = false; // don't fire an actual shot
