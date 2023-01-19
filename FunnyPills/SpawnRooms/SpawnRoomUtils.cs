@@ -163,6 +163,22 @@ namespace FunnyPills.SpawnRooms
 
                 // right of regular door
                 new Vector3(-7.2f, 0.1f, -1.6f)
+            }),
+
+            // intercom
+            new SpawnRoom(RoomType.EzIntercom, new List<Vector3>
+            {
+                // right of intercom console, on floor
+                new Vector3(-6.3f, -5.8f, -4.2f),
+
+                // behind lamp
+                new Vector3(-6.7f, -5, -3.9f),
+
+                // on desk
+                new Vector3(-6.9f, -5, -2.5f),
+
+                // in the hidey spot
+                new Vector3(-5.2f, -5.8f, 3.4f)
             })
         };
     }
