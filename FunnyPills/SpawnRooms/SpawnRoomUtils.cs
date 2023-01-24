@@ -200,7 +200,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(31.6f, -8, -28.6f),
 
                 // top of left machine
-                new Vector3(27.4f, -6.8f, -26.4f)
+                new Vector3(27.4f, -6.8f, -26.4f),
 
                 // top of nuke terminal
                 new Vector3(29.6f, -6.8f, -23.6f),
@@ -224,6 +224,49 @@ namespace FunnyPills.SpawnRooms
 
                 // by last white stripes on pavement
                 new Vector3(-37.2f, -12.6f, -42.8f)
+            }),
+
+
+            // surface escape
+            new SpawnRoom(RoomType.Surface, new List<Vector3>
+            {
+                // outer escape room inside:
+                // outer escape door, inside, right side facing outside
+                new Vector3(134.6f, -5.3f, -25.3f),
+                // outer escape door, inside, left side facing outside
+                new Vector3(138.2f, -5.3f, -25.3f),
+                // inner escape door, inside square room, right side facing ramp
+                new Vector3(132.8f, -5.3f, -18.6f),
+                // inner escape door, inside square room, left side facing ramp
+                new Vector3(134.6f, -5.3f, -18.6f),
+
+                // resting on spike
+                new Vector3(134.4f, -4.8f, -17.1f),
+
+                // on ramp, left of openable door
+                new Vector3(137.6f, -5.3f, -18),
+
+                // surface across from exit, right corner
+                new Vector3(130.8f, -5.3f, -66.7f),
+
+                // surface across from exit, behind pillar
+                new Vector3(141.8f, -5.5f, -59.6f)
+            }),
+
+            // surface exit building
+            new SpawnRoom(RoomType.Surface, new List<Vector3>
+            {
+                // under table, left
+                new Vector3(133.8f, -12.2f, 25.3f),
+
+                // metal gate
+                new Vector3(121.1f, -12.2f, 23.6f),
+
+                // on terminal
+                new Vector3(133.7f, -11.5f, 19.9f),
+
+                // back corner
+                new Vector3(133.1f, -12.2f, 25.9f)
             })
 
         };
