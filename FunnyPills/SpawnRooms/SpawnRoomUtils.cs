@@ -130,7 +130,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-2.3f, 12.3f, -6.6f),
 
                 // in between gate and rail (diabolical)
-                new Vector3(-2.0f, 11.4f, 2.2f),
+                new Vector3(-2.0f, 11.4f, 2.1f),
 
                 // bottom floor behind pole
                 new Vector3(-6.3f, 0, -1.8f)
@@ -185,8 +185,46 @@ namespace FunnyPills.SpawnRooms
 
                 // middle of stairs
                 new Vector3(4.5f, -1.5f, 1.1f)
-            })
+            }),
 
+            // surface nuke room
+            new SpawnRoom(RoomType.Surface, new List<Vector3>
+            {
+                // right of nuke console
+                new Vector3(31.7f, -9.1f, -23.8f),
+
+                // left of left table
+                new Vector3(27.1f, -8.9f, -25.6f),
+
+                // right of workstation
+                new Vector3(31.6f, -8, -28.6f),
+
+                // top of left machine
+                new Vector3(27.4f, -6.8f, -26.4f)
+
+                // top of nuke terminal
+                new Vector3(29.6f, -6.8f, -23.6f),
+
+                // top of nuke teminal, back right
+                new Vector3(30.2f, -6.8f, -23.3f)
+            }),
+
+
+            // chaos spawn part of surface
+            new SpawnRoom(RoomType.Surface, new List<Vector3>
+            {
+                // wall closer to elevators, behind pillar
+                new Vector3(-14.1f, -9.1f, -34.6f),
+
+                // right of locked door
+                new Vector3(-41.2f, -9.1f, -35),
+
+                // left of locked door
+                new Vector3(-41.2f, -9.1f, -37.4f),
+
+                // by last white stripes on pavement
+                new Vector3(-37.2f, -12.6f, -42.8f)
+            })
 
         };
     }
