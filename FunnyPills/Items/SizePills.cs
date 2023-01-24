@@ -60,7 +60,11 @@ namespace FunnyPills.Items
 
         private void OnSpawn(SpawnedEventArgs ev)
         {
-            if (affectedPlayers.ContainsKey(ev.Player))
+            if (affectedPlayers == null)
+            {
+                affectedPlayers = new Dictionary<Player, Vector3>();
+            }
+            if (ev != null && ev.Player != null && affectedPlayers.ContainsKey(ev.Player))
             {
                 ev.Player.Scale = new Vector3(1f, 1, 1);
                 affectedPlayers.Remove(ev.Player);
