@@ -1,5 +1,4 @@
-﻿using Exiled.API.Features;
-using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
@@ -36,7 +35,7 @@ namespace FunnyPills.Items
             if (Check(ev.Item))
             {
                 // limit number of rooms that can be exploded to prevent earrape
-                foreach (var door in ev.Player.CurrentRoom.Doors.Take(5))
+                foreach (var door in ev.Player.CurrentRoom.Doors.Take(4))
                 {
                     door.BreakDoor(); // if breakable
                     door.TryPryOpen(); // if pryable
