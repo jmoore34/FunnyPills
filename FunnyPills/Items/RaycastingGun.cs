@@ -49,7 +49,7 @@ namespace FunnyPills.Items
             var localPosition = room.Transform.InverseTransformPoint(absolutePosition);
             var message = $"<color=#71eeff>{room.Name}</color> {localPosition}";
             player.ShowHint(message);
-            player.SendConsoleMessage(message, "white");
+            player.SendConsoleMessage(message + $"\n x: {localPosition.x}\n y: {localPosition.y}\n z: {localPosition.z}", "white");
 
             if (lastSpawnedItem != null)
             {
