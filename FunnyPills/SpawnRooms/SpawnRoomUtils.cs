@@ -152,7 +152,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-5.6f, 1, -6),
 
                 // under stall, impossible to pick up due to invisible wall
-                new Vector3(1.9f, 0.1f, -5.2f)  
+                new Vector3(1.9f, 0.1f, -5.2f)
             }),
 
             // 079 CR
@@ -280,6 +280,122 @@ namespace FunnyPills.SpawnRooms
 
                 // cubby near elevator A
                 new Vector3(-1.6f, 0, 7.2f),
+            }),
+
+            // 096 CR
+            new SpawnRoom(RoomType.Hcz096, new List<Vector3>
+            {
+                // right of door
+                new Vector3(-3.526001f, 0.03570557f, 1.396943f),
+
+                // to the left of the corpse
+                new Vector3(-0.3351747f, 0f, -0.7608796f),
+
+                // back left
+                new Vector3(-0.1967851f, 0f, 1.634773f),
+
+                // left wall
+                new Vector3(-1.854326f, 0f, 1.728248f),
+
+                // outside cell, right of server
+                new Vector3(-4.325073f, 0f, 2.704797f),
+
+                // outside cell, left of terminal
+                new Vector3(-6.599492f, 0f, 2.842536f),
+            }),
+
+            // old dog CR
+            new SpawnRoom(RoomType.HczTestRoom, new List<Vector3>
+            {
+                // in the cup
+                new Vector3(-0.4375801f, 0.7538452f, -4.826424f),
+
+                // left windowsill
+                new Vector3(-1.847164f, 0.8113403f, -4.208427f),
+
+                // right of mic
+                new Vector3(0.710762f, 0.7468872f, -4.924149f),
+
+                // right of computer
+                new Vector3(1.088753f, 0f, -4.538429f),
+
+                // left of lamp
+                new Vector3(-0.8975182f, 0.7468872f, -4.482376f),
+
+                // behind computer
+                new Vector3(0.3599701f, 0.7585449f, -4.502243f),
+            }),
+
+            // SCP 049 CR
+            new SpawnRoom(RoomType.Hcz049, new List<Vector3>
+            {
+                // 2nd from bottom shelf, left
+                new Vector3(4.872688f, 192.9505f, -6.998093f),
+
+                // bottom shelf right
+                new Vector3(3.741005f, 192.5399f, -7.059914f),
+                
+                // 3rd shelf left
+                new Vector3(5.029716f, 193.3875f, -7.06649f),
+
+                // 4th shelf middle
+                new Vector3(4.388649f, 193.7803f, -6.994797f),
+
+                // top right
+                new Vector3(3.783722f, 194.2289f, -6.97905f),
+            }),
+
+            // SCP 106 CR set 1 (inside control room)
+            new SpawnRoom(RoomType.Hcz106, new List<Vector3>
+            {
+                // left triangle structure
+                new Vector3(23.98898f, 3.200745f, -5.564901f),
+
+                // left shelf top left
+                new Vector3(24.70265f, 2.151733f, -3.863644f),
+
+                // bottom shelf left
+                new Vector3(24.65559f, 0.4593506f, -3.846127f),
+                
+                // right of shelf
+                new Vector3(24.68668f, -0.02410889f, -5.212471f),
+
+                // top of terminal
+                new Vector3(19.09278f, 2.139404f, -1.764769f),
+
+                // top shelf right
+                new Vector3(24.65392f, 1.703247f, -5.098042f),
+
+                // left of femur breaker
+                new Vector3(24.68352f, 0.0009155273f, -8.718685f),
+
+                // right windowsill
+                new Vector3(18.49769f, 0.9578247f, -6.666037f),
+            }),
+
+            // SCP 106 CR, set 2 (outside control room)
+            new SpawnRoom(RoomType.Hcz106, new List<Vector3>
+            {
+                // at the path turn
+                new Vector3(-5.027808f, 0.06201172f, -20.7898f),
+
+                // behind coil 1 (closer to hcz)
+                new Vector3(3.174925f, 0.8729858f, -12.67658f),
+
+                // by coil 2
+                new Vector3(9.117414f, 0.8729858f, -8.484824f),
+
+                // on coil 1
+                new Vector3(0.9208537f, 2.946228f, -10.79707f),
+
+                // on coil 2
+                new Vector3(0.82541f, 3.080994f, -10.52536f),
+
+                // behind pillar 1 (closest to hcz)
+                new Vector3(-2.11866f, 0.2909546f, -3.157971f),
+
+                // behind railing near entrance door
+                new Vector3(-7.354649f, 0.3106689f, -3.403337f),
             })
 
         };
