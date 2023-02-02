@@ -127,10 +127,10 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-2.3f, 11.4f, -3.1f),
 
                 // the classic behind computer
-                new Vector3(-2.3f, 12.3f, -6.6f),
+                new Vector3(-2.297783f, 12.32794f, -6.601738f),
 
                 // in between gate and rail (diabolical)
-                new Vector3(-2.0f, 11.4f, 2.1f),
+                new Vector3(-2.03199f, 11.4355f, 2.226341f),
 
                 // bottom floor behind pole
                 new Vector3(-6.3f, 0, -1.8f)
@@ -162,7 +162,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(5.4f, -3.1f, 1.7f),
 
                 // mid stairs right
-                new Vector3(2.4f, -1.4f, -1.8f),
+                new Vector3(2.438232f, -1.42688f, -1.759621f),
 
                 // right of regular door
                 new Vector3(-7.2f, 0.1f, -1.6f)
@@ -267,6 +267,19 @@ namespace FunnyPills.SpawnRooms
 
                 // back corner
                 new Vector3(133.1f, -12.2f, 25.9f)
+            }),
+
+            // surface upstairs
+            new SpawnRoom(RoomType.Surface, new List<Vector3>
+            {
+                // behind railing near stairs by elevator A
+                new Vector3(11.3f, 0.1f, -12.6f),
+
+                // in front of railing near stairs by elevator A
+                new Vector3(11.2f, 0, -13.2f),
+
+                // cubby near elevator A
+                new Vector3(-1.6f, 0, 7.2f),
             })
 
         };
