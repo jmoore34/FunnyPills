@@ -1,4 +1,5 @@
-﻿using Exiled.API.Extensions;
+﻿using Exiled.API.Enums;
+using Exiled.API.Extensions;
 using Exiled.API.Features;
 using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
@@ -41,6 +42,14 @@ namespace FunnyPills.Items
             if (!Check(ev.Item))
                 return;
 
+            // don't allow within pocket dimension
+            if (ev.Player.CurrentRoom.Type == RoomType.Pocket)
+            {
+                ev.Player.Broadcast(5, "<color=#ed98a2>An anomalous force prevents the use of SCP-500-A here.</color>", Broadcast.BroadcastFlags.Normal, true);
+                ev.IsAllowed = false;
+                return;
+            }
+
             // These pills need a spectator to be able to work
 
             // If no spectators:
@@ -57,7 +66,7 @@ namespace FunnyPills.Items
                 return;
 
             var spawnPlayer = Util.GetRandomSpectatorOrNull();
-            if (spawnPlayer == null)
+            if (spawnPlayer == null || ev.Player.CurrentRoom.Type == RoomType.Pocket)
             {
                 ev.Player.Broadcast(6, "<color=#d53f51>But nobody came...</color>", Broadcast.BroadcastFlags.Normal, true);
             }
