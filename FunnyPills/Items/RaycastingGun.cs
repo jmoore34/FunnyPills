@@ -50,6 +50,7 @@ namespace FunnyPills.Items
             var message = $"<color=#71eeff>{room.Name}</color> {localPosition}";
             player.ShowHint(message);
             player.SendConsoleMessage(message + $"\n x: {localPosition.x}\n y: {localPosition.y}\n z: {localPosition.z}", "white");
+            Log.Info($"Raycast gun:   new Vector3({localPosition.x}, {localPosition.y}, {localPosition.z})");
 
             if (lastSpawnedItem != null)
             {
