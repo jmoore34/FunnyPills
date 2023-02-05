@@ -121,8 +121,8 @@ namespace FunnyPills.SpawnRooms
                 // left of gate
                 new Vector3(-1, 11.5f, -2.4f),
 
-                // top of stairs
-                new Vector3(-7.4f, 11.5f, -2.8f),
+                // top of stairs on rail
+                new Vector3(-3.42081f, 12.7698f, -1.691464f),
 
                 // left of desk
                 new Vector3(-2.721058f, 11.4355f, -3.559582f),
