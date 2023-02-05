@@ -67,9 +67,12 @@ namespace FunnyPills.Items
                 {
                     var chosenRoom = PluginAPI.Core.Map.Rooms.Where(room =>
                         // don't tp to light unless not yet decontaminated & not nuked
-                        (room.Zone != MapGeneration.FacilityZone.LightContainment || (!Map.IsLczDecontaminated && !PluginAPI.Core.Warhead.IsDetonated))
-                        // only tp to surface unless nuke hasn't gone off
-                        && (room.Zone == MapGeneration.FacilityZone.Surface || !PluginAPI.Core.Warhead.IsDetonated)
+                        (room.Zone != FacilityZone.LightContainment || (!Map.IsLczDecontaminated && !PluginAPI.Core.Warhead.IsDetonated))
+                        // tp to surface if and only if (iff) nuke has gone off
+                        // i.e. tp to room (room in facility, not on surface) xor (warhead has detonated)
+                        // so no tping to facility if warhead detonated (not both facility & detonated)
+                        // and no tping to not surface if warhead not detonated (not neither facility or detonated)
+                        && (room.Zone != FacilityZone.Surface ^ PluginAPI.Core.Warhead.IsDetonated)
                         // don't tp to invalid rooms
                         && room.isActiveAndEnabled
                         && room.gameObject != null
