@@ -79,6 +79,8 @@ namespace FunnyPills.Items
                         && room.Name != RoomName.Pocket
                         && room.Name != RoomName.EzCollapsedTunnel
                         && room.Name != RoomName.EzEvacShelter
+                        // testroom/dog's old room will tp the player into the pit
+                        && room.Name != RoomName.HczTestroom
                         && room.Name != RoomName.Lcz173
                         && room.Name != RoomName.HczTesla
                     ).RandomElement();
