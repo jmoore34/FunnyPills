@@ -403,6 +403,18 @@ namespace FunnyPills.SpawnRooms
 
                 // behind railing near entrance door
                 new Vector3(-7.354649f, 0.3106689f, -3.403337f),
+            }),
+
+            // lcz elevator a
+            new SpawnRoom(RoomType.LczCheckpointA, new List<Vector3>
+            {
+                new Vector3(17.62707f, 3.662614f, -2.005332f),
+            }),
+
+            // lcz elevator b
+            new SpawnRoom(RoomType.LczCheckpointB, new List<Vector3>
+            {
+                new Vector3(17.62505f, 3.857507f, -2.001678f),
             })
 
         };
