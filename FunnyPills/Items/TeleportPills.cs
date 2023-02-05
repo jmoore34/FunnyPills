@@ -5,7 +5,6 @@ using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MapGeneration;
 using MEC;
-using PluginAPI.Core.Zones;
 using System.Linq;
 
 namespace FunnyPills.Items
@@ -51,6 +50,7 @@ namespace FunnyPills.Items
                         && room.gameObject != null
                         && room.Name != RoomName.Pocket
                         && room.Name != RoomName.EzCollapsedTunnel
+                        && room.Name != RoomName.EzEvacShelter
                         && room.Name != RoomName.Lcz173
                         && room.Name != RoomName.HczTesla
                     ).RandomElement();
