@@ -81,6 +81,9 @@ namespace FunnyPills.SpawnRooms
                 // aqua room by pillar
                 new Vector3(-6.4f, 0, -4.5f),
 
+                // aqua room behind tube on machine
+                new Vector3(-5.447746f, 0f, -7.218553f),
+
                 // computer desk
                 new Vector3(-2.1f, 1.1f, -1.0f),
 
@@ -107,15 +110,13 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(9.8f, 13.7f, 13.7f),
 
                 // left of lockers
-                new Vector3(8.6f, 11.5f, 13.8f),
+                new Vector3(8.543708f, 11.46896f, 13.81158f),
 
                 // corner next to locked door
                 new Vector3(10.3f, 11.5f, -2.1f),
 
                 // right of unlocked door
                 new Vector3(1.7f, 11.5f, 2.2f),
-                // right of unlocked door
-                new Vector3(1.7f, 11.5f, -2.2f),
 
                 // left of gate
                 new Vector3(-1, 11.5f, -2.4f),
@@ -124,7 +125,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-7.4f, 11.5f, -2.8f),
 
                 // left of desk
-                new Vector3(-2.3f, 11.4f, -3.1f),
+                new Vector3(-2.721058f, 11.4355f, -3.559582f),
 
                 // the classic behind computer
                 new Vector3(-2.297783f, 12.32794f, -6.601738f),
@@ -143,7 +144,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(5.5f, 1, -6.3f),
 
                 // under men's sink
-                new Vector3(5.7f, 0, -6.8f),
+                new Vector3(5.66823f, 2.175241E-06f, -6.653695f),
 
                 // women's toilet
                 new Vector3(-0.4f, 1.3f, -7),
@@ -181,7 +182,7 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-6.9f, -5, -2.5f),
 
                 // in the hidey spot
-                new Vector3(-5.2f, -5.8f, 3.4f),
+                new Vector3(-5.10827f, -5.81958f, 3.593994f),
 
                 // middle of stairs
                 new Vector3(4.5f, -1.5f, 1.1f)
@@ -190,8 +191,8 @@ namespace FunnyPills.SpawnRooms
             // surface nuke room
             new SpawnRoom(RoomType.Surface, new List<Vector3>
             {
-                // right of nuke console
-                new Vector3(31.7f, -9.1f, -23.8f),
+                // left of machine right of nuke console
+                new Vector3(31.68461f, -9.013123f, -23.83365f),
 
                 // left of left table
                 new Vector3(27.1f, -8.9f, -25.6f),
@@ -214,16 +215,16 @@ namespace FunnyPills.SpawnRooms
             new SpawnRoom(RoomType.Surface, new List<Vector3>
             {
                 // wall closer to elevators, behind pillar
-                new Vector3(-14.1f, -9.1f, -34.6f),
+                new Vector3(-14.04674f, -9.078552f, -34.57362f),
 
                 // right of locked door
-                new Vector3(-41.2f, -9.1f, -35),
+                new Vector3(-41.31734f, -9.078552f, -34.95293f),
 
                 // left of locked door
-                new Vector3(-41.2f, -9.1f, -37.4f),
+                new Vector3(-41.2768f, -9.078552f, -36.7546f),
 
                 // by last white stripes on pavement
-                new Vector3(-37.2f, -12.6f, -42.8f)
+                new Vector3(-38.40725f, -12.76624f, -42.81491f),
             }),
 
 
@@ -232,41 +233,44 @@ namespace FunnyPills.SpawnRooms
             {
                 // outer escape room inside:
                 // outer escape door, inside, right side facing outside
-                new Vector3(134.6f, -5.3f, -25.3f),
+                new Vector3(134.5208f, -5.266235f, -25.36885f),
                 // outer escape door, inside, left side facing outside
-                new Vector3(138.2f, -5.3f, -25.3f),
+                new Vector3(138.2468f, -5.266235f, -25.36414f),
                 // inner escape door, inside square room, right side facing ramp
-                new Vector3(132.8f, -5.3f, -18.6f),
+                new Vector3(138.2641f, -5.266235f, -18.52422f),
                 // inner escape door, inside square room, left side facing ramp
-                new Vector3(134.6f, -5.3f, -18.6f),
+                new Vector3(134.54f, -5.266296f, -18.53624f),
 
                 // resting on spike
-                new Vector3(134.4f, -4.8f, -17.1f),
+                new Vector3(134.3919f, -4.759766f, -17.03487f),
 
                 // on ramp, left of openable door
-                new Vector3(137.6f, -5.3f, -18),
+                new Vector3(138.1149f, -5.352539f, -17.75255f),
 
                 // surface across from exit, right corner
-                new Vector3(130.8f, -5.3f, -66.7f),
+                new Vector3(130.718f, -5.266235f, -66.73461f),
 
                 // surface across from exit, behind pillar
-                new Vector3(141.8f, -5.5f, -59.6f)
+                new Vector3(141.8056f, -5.369446f, -59.65941f),
+
+                // ramp roof
+                new Vector3(136.6988f, -1.604614f, -17.57018f),
             }),
 
             // surface exit building
             new SpawnRoom(RoomType.Surface, new List<Vector3>
             {
                 // under table, left
-                new Vector3(133.8f, -12.2f, 25.3f),
+                new Vector3(133.3835f, -11.8479f, 21.87625f),
 
                 // metal gate
                 new Vector3(121.1f, -12.2f, 23.6f),
 
-                // on terminal
-                new Vector3(133.7f, -11.5f, 19.9f),
+                // right of terminal
+                new Vector3(134.0111f, -11.24255f, 17.90028f),
 
                 // back corner
-                new Vector3(133.1f, -12.2f, 25.9f)
+                new Vector3(133.1326f, -12.16785f, 25.88137f),
             }),
 
             // surface upstairs
@@ -324,6 +328,9 @@ namespace FunnyPills.SpawnRooms
 
                 // behind computer
                 new Vector3(0.3599701f, 0.7585449f, -4.502243f),
+                
+                // on chair
+                new Vector3(0.2170525f, 0.7068481f, -5.300056f),
             }),
 
             // SCP 049 CR
