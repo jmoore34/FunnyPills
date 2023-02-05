@@ -1,4 +1,5 @@
-﻿using Exiled.API.Extensions;
+﻿using Exiled.API.Enums;
+using Exiled.API.Extensions;
 using Exiled.API.Features;
 using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
@@ -26,6 +27,7 @@ namespace FunnyPills.Items
         protected override void SubscribeEvents()
         {
             Exiled.Events.Handlers.Server.RoundStarted += OnRoundStart;
+            Exiled.Events.Handlers.Player.UsingItem += OnUsingItem;
             Exiled.Events.Handlers.Player.UsedItem += OnUsedItem;
             Exiled.Events.Handlers.Player.Verified += OnPlayerVerified;
             base.SubscribeEvents();
@@ -34,6 +36,7 @@ namespace FunnyPills.Items
         protected override void UnsubscribeEvents()
         {
             Exiled.Events.Handlers.Server.RoundStarted -= OnRoundStart;
+            Exiled.Events.Handlers.Player.UsingItem -= OnUsingItem;
             Exiled.Events.Handlers.Player.UsedItem -= OnUsedItem;
             Exiled.Events.Handlers.Player.Verified -= OnPlayerVerified;
 
@@ -44,6 +47,21 @@ namespace FunnyPills.Items
         private void OnRoundStart()
         {
             playerDisguises.Clear();
+        }
+
+        private void OnUsingItem(UsingItemEventArgs ev)
+        {
+            // work only on these custom pills
+            if (!Check(ev.Item))
+                return;
+
+            // don't allow within pocket dimension
+            if (ev.Player.CurrentRoom.Type == RoomType.Pocket)
+            {
+                ev.Player.ShowHint(PocketDimensionMessage, PocketDimensionMessageDuration);
+                ev.IsAllowed = false;
+                return;
+            }
         }
 
         // when new players join, send them the disguise packet
@@ -68,6 +86,13 @@ namespace FunnyPills.Items
         {
             if (Check(ev.Item))
             {
+                // Disallow special pill effects in pocket dimension
+                if (ev.Player.CurrentRoom.Type == RoomType.Pocket)
+                {
+                    ev.Player.Broadcast(PocketDimensionMessageDuration, PocketDimensionMessage);
+                    return;
+                }
+
                 RoleTypeId disguise;
                 switch (ev.Player.Role.Type)
                 {

@@ -1,4 +1,5 @@
-﻿using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Enums;
+using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
@@ -20,6 +21,7 @@ namespace FunnyPills.Items
 
         protected override void SubscribeEvents()
         {
+            Exiled.Events.Handlers.Player.UsingItem += OnUsingItem;
             Exiled.Events.Handlers.Player.UsedItem += OnUsedItem;
 
             base.SubscribeEvents();
@@ -27,14 +29,37 @@ namespace FunnyPills.Items
 
         protected override void UnsubscribeEvents()
         {
+            Exiled.Events.Handlers.Player.UsingItem -= OnUsingItem;
             Exiled.Events.Handlers.Player.UsedItem -= OnUsedItem;
             base.UnsubscribeEvents();
+        }
+
+        private void OnUsingItem(UsingItemEventArgs ev)
+        {
+            // work only on these custom pills
+            if (!Check(ev.Item))
+                return;
+
+            // don't allow within pocket dimension
+            if (ev.Player.CurrentRoom.Type == RoomType.Pocket)
+            {
+                ev.Player.ShowHint(PocketDimensionMessage, PocketDimensionMessageDuration);
+                ev.IsAllowed = false;
+                return;
+            }
         }
 
         private void OnUsedItem(UsedItemEventArgs ev)
         {
             if (Check(ev.Item))
             {
+                // Disallow special pill effects in pocket dimension
+                if (ev.Player.CurrentRoom.Type == RoomType.Pocket)
+                {
+                    ev.Player.Broadcast(PocketDimensionMessageDuration, PocketDimensionMessage);
+                    return;
+                }
+
                 var duration = 8;
 
                 if (UnityEngine.Random.value < 0.75)

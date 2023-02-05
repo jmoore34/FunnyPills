@@ -45,7 +45,7 @@ namespace FunnyPills.Items
             // don't allow within pocket dimension
             if (ev.Player.CurrentRoom.Type == RoomType.Pocket)
             {
-                ev.Player.Broadcast(5, "<color=#ed98a2>An anomalous force prevents the use of SCP-500-A here.</color>", Broadcast.BroadcastFlags.Normal, true);
+                ev.Player.ShowHint(PocketDimensionMessage, PocketDimensionMessageDuration);
                 ev.IsAllowed = false;
                 return;
             }
@@ -64,6 +64,13 @@ namespace FunnyPills.Items
         {
             if (!Check(ev.Item))
                 return;
+
+            // Disallow special pill effects in pocket dimension
+            if (ev.Player.CurrentRoom.Type == RoomType.Pocket)
+            {
+                ev.Player.Broadcast(PocketDimensionMessageDuration, PocketDimensionMessage);
+                return;
+            }
 
             var spawnPlayer = Util.GetRandomSpectatorOrNull();
             if (spawnPlayer == null || ev.Player.CurrentRoom.Type == RoomType.Pocket)
