@@ -71,7 +71,7 @@ namespace FunnyPills.Items
                 }
             }
 
-            var newItem = CustomItem.Get(TeleportPills.ItemId);
+            var newItem = CustomItem.Get(RaycastPills.ItemId);
             lastSpawnedItem = newItem.Spawn(absolutePosition);
             ev.IsAllowed = false; // don't fire an actual shot
         }
