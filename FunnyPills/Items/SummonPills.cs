@@ -95,7 +95,7 @@ namespace FunnyPills.Items
                     case RoleTypeId.NtfSergeant:
                     case RoleTypeId.NtfSpecialist:
                     case RoleTypeId.NtfCaptain:
-                        spawnPlayerRole = RoleTypeId.FacilityGuard;
+                        spawnPlayerRole = RoleTypeId.NtfSergeant;
                         break;
                     default:
                         spawnPlayerRole = RoleTypeId.Tutorial;
