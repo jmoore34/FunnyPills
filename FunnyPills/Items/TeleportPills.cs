@@ -83,6 +83,8 @@ namespace FunnyPills.Items
                         && room.Name != RoomName.HczTestroom
                         && room.Name != RoomName.Lcz173
                         && room.Name != RoomName.HczTesla
+                        // exploit if they tp inside 079 cr and kill 079
+                        && room.Name != RoomName.Hcz079
                     ).RandomElement();
                     Log.Info($"{ev.Player.Nickname} used SCP-500-T. Chosen room: {chosenRoom.Name} ({chosenRoom.Zone}), decontaminated: {Map.IsLczDecontaminated}, nuked: {PluginAPI.Core.Warhead.IsDetonated}");
                     ev.Player.Teleport(chosenRoom);
