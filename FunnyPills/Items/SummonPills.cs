@@ -87,7 +87,7 @@ namespace FunnyPills.Items
                     case RoleTypeId.ChaosRifleman:
                     case RoleTypeId.ChaosRepressor:
                     case RoleTypeId.ChaosMarauder:
-                        spawnPlayerRole = RoleTypeId.ChaosConscript;
+                        spawnPlayerRole = RoleTypeId.ChaosRifleman;
                         break;
                     case RoleTypeId.Scientist:
                     case RoleTypeId.FacilityGuard:
@@ -104,7 +104,7 @@ namespace FunnyPills.Items
                 // todo: add serpents custom class if tutorial
                 // also: change role name to serpents if so
                 ev.Player.Broadcast(5, $"Summoning a <color={spawnPlayerRole.GetColor().ToHex()}>{spawnPlayerRole.GetFullName()}</color>");
-                spawnPlayer.Role.Set(spawnPlayerRole, Exiled.API.Enums.SpawnReason.Respawn, RoleSpawnFlags.All);
+                spawnPlayer.Role.Set(spawnPlayerRole, SpawnReason.Respawn, RoleSpawnFlags.All);
                 spawnPlayer.Broadcast(16, "<color=#fffea7>You have been summoned by</color> <color=#83f546>SCP-500-A</color>",
                     Broadcast.BroadcastFlags.Normal, true);
                 // wait a bit to allow the spawn to finish
