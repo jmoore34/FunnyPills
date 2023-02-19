@@ -14,7 +14,7 @@ namespace FunnyPills
         {
             (CustomPill) CustomItem.Get(SummonPills.ItemId),
             (CustomPill) CustomItem.Get(BetrayPills.ItemId),
-            (CustomPill) CustomItem.Get(DisguisePills.ItemId),
+            //(CustomPill) CustomItem.Get(DisguisePills.ItemId),
             //(CustomPill) CustomItem.Get(SizePills.ItemId),
             (CustomPill) CustomItem.Get(SpeedPills.ItemId),
             (CustomPill) CustomItem.Get(TeleportPills.ItemId),
