@@ -4,8 +4,10 @@ using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
+using Interactables.Interobjects.DoorUtils;
 using MapGeneration;
 using MEC;
+using System;
 using System.Linq;
 
 namespace FunnyPills.Items
@@ -66,6 +68,7 @@ namespace FunnyPills.Items
                 Timing.CallDelayed(secondsBeforeTeleport, () =>
                 {
                     var chosenRoom = PluginAPI.Core.Map.Rooms.Where(room =>
+                        (room.Name == RoomName.LczArmory || room.Name == RoomName.HczArmory) &&
                         // don't tp to light unless not yet decontaminated & not nuked
                         (room.Zone != FacilityZone.LightContainment || (!Map.IsLczDecontaminated && !PluginAPI.Core.Warhead.IsDetonated))
                         // tp to surface if and only if (iff) nuke has gone off
@@ -87,6 +90,21 @@ namespace FunnyPills.Items
                         && room.Name != RoomName.Hcz079
                     ).RandomElement();
                     Log.Info($"{ev.Player.Nickname} used SCP-500-T. Chosen room: {chosenRoom.Name} ({chosenRoom.Zone}), decontaminated: {Map.IsLczDecontaminated}, nuked: {PluginAPI.Core.Warhead.IsDetonated}");
+
+                    // Fully load the room so that items spawn
+                    try
+                    {
+                        var room = Room.Get(chosenRoom);
+                        foreach (Door door in room.Doors)
+                        {
+                            // this doesn't actually open the door but rather just loads the room
+                            DoorEvents.TriggerAction(door.Base, DoorAction.Opened, ev.Player.ReferenceHub);
+                        }
+                    } catch (Exception e)
+                    {
+                        Log.Error($"Error while loading room for player {ev.Player.Nickname} using {Name}: {e}");
+                    }
+
                     ev.Player.Teleport(chosenRoom);
                 });
             }
