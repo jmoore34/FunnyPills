@@ -106,6 +106,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Items\CustomPill.cs" />
     <Compile Include="Items\BetrayPills.cs" />
+    <Compile Include="Items\LookPills.cs" />
     <Compile Include="Items\DisguisePills.cs" />
     <Compile Include="Items\RaycastPills.cs" />
     <Compile Include="Items\SizePills.cs" />
