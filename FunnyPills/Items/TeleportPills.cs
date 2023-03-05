@@ -68,7 +68,6 @@ namespace FunnyPills.Items
                 Timing.CallDelayed(secondsBeforeTeleport, () =>
                 {
                     var chosenRoom = PluginAPI.Core.Map.Rooms.Where(room =>
-                        (room.Name == RoomName.LczArmory || room.Name == RoomName.HczArmory) &&
                         // don't tp to light unless not yet decontaminated & not nuked
                         (room.Zone != FacilityZone.LightContainment || (!Map.IsLczDecontaminated && !PluginAPI.Core.Warhead.IsDetonated))
                         // tp to surface if and only if (iff) nuke has gone off
@@ -100,7 +99,8 @@ namespace FunnyPills.Items
                             // this doesn't actually open the door but rather just loads the room
                             DoorEvents.TriggerAction(door.Base, DoorAction.Opened, ev.Player.ReferenceHub);
                         }
-                    } catch (Exception e)
+                    }
+                    catch (Exception e)
                     {
                         Log.Error($"Error while loading room for player {ev.Player.Nickname} using {Name}: {e}");
                     }
