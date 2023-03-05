@@ -286,6 +286,18 @@ namespace FunnyPills.SpawnRooms
                 new Vector3(-1.6f, 0, 7.2f),
             }),
 
+            // upper surface by towers
+            new SpawnRoom(RoomType.Surface, new List<Vector3> {
+                // back, above chaos car
+                new Vector3(-18.52898f, 2.230347f, -54.41997f),
+
+                // dead end closest to elevator A
+                new Vector3(-12.80575f, 0.468689f, -34.55436f),
+
+                // dead end L path
+                new Vector3(35.55771f, 0.5039063f, -35.53783f),
+            }),
+
             // 096 CR
             new SpawnRoom(RoomType.Hcz096, new List<Vector3>
             {
@@ -415,8 +427,39 @@ namespace FunnyPills.SpawnRooms
             new SpawnRoom(RoomType.LczCheckpointB, new List<Vector3>
             {
                 new Vector3(17.62505f, 3.857507f, -2.001678f),
-            })
+            }),
 
+            // lcz plants room
+            new SpawnRoom(RoomType.LczPlants, new List<Vector3>
+            {
+                // right plants
+                new Vector3(5.045746f, 0.7800235f, 4.382156f),
+
+                // left glass
+                new Vector3(-7.347305f, 0.004251652f, 2.300835f),
+
+                // right light
+                new Vector3(5.786995f, 4.336228f, 3.267532f),
+
+               // middle plants
+               new Vector3(0.02301025f, 0.7800232f, 4.730377f),
+            }),
+
+            // lcz pc room
+            new SpawnRoom(RoomType.LczCafe, new List<Vector3>
+            {
+                // cup on desk: 2nd from door, 3rd from left
+                new Vector3(0.9996872f, 0.8065606f, -1.256462f),
+
+                // cup on desk: 3rd from door, left
+                new Vector3(4.228341f, 0.8964131f, 3.304665f),
+
+                // by desk: 2nd from door, left
+                new Vector3(1.299309f, -1.007944E-16f, 4.539376f),
+
+                // rightmost computer furthest from door
+                new Vector3(8.038712f, 0.8600227f, -3.875352f),
+            })
         };
     }
 }
